@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación 1 - Práctica 1</title>
+</head>
+
+<body>
+
+    <script>
+
+        var valor = prompt("Introduzca un número");
+
+        // Cualquier cosa que se introduzca en el prompt va a ser un string. Hay que operar con el valor introducido de manera que podamos saber si es un valor numérico o una letra.
+        // Cualquier operador algebraico va a convertir el valor introducido en tipo 'number' (salvo +, que no puede forzar la conversión). Así que, la única solución que se me ocurrió fue dividirlo entre cero. Si "valor" es una letra o caracter, al dividirlo entre cero dará NaN. Si "valor" era un número, el resultado será Infinity.
+        var convertir = valor/0;
+
+        // Con NaN no se puede trabajar, siempre va a dar "false", en cambio, Infinity es tomado como un número cualquiera y sí se puede comparar. Por eso, he utilizado la condición "convertir != Infinity" como comprobación de que el valor introducido es algo distinto a un valor numérico. Mientras eso siga siendo así, vuelve a salir el prompt. Cuando se introduzca un valor numérico, el resultado será Infinity y saldrá del bucle.
+        while (convertir != Infinity) {
+         valor = prompt ("Eso no es un número, vuelva a introducirlo");
+            convertir = valor/0;
+        }
+
+        alert("Correcto, " + valor + " es un número");
+
+    </script>
+
+</body>
+
+</html>
