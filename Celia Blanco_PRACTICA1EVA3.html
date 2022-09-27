@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación 1 - Práctica 3</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        div{
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        
+        // Declaro las variables que van a configurar el color RGB del div
+        var color_A = parseInt(Math.random()*256);
+        var color_C = parseInt(Math.random()*256);
+        var color_B = parseInt(Math.random()*256);
+
+        // Con document.write, aparecerá un nuevo div sustituyendo al anterior, variando sólo el color
+      document.write(`<div style="background-color: rgb(${color_A}, ${color_B}, ${color_C});"></div>`);
+
+    </script>
+
+
+</body>
+
+</html>
