@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cuadraditos</title>
+    <style>
+      div {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script>
+
+      for (i = 0; i < 2000; i++) {
+
+        // Declaro las variables para indicar la posición
+        var pos_left = parseInt(Math.random()*100);
+        var pos_top = parseInt(Math.random()*100);
+        
+        // Declaro las variables que van a configurar el color RGB del div
+        var color_A = parseInt(Math.random()*256);
+        var color_C = parseInt(Math.random()*256);
+        var color_B = parseInt(Math.random()*256);
+      
+        // Dibujar los cuadraditos con document.write (para ver línea completa, Alt+z)
+        document.write(`<div style="left: ${pos_left}%; top: ${pos_top}%; background-color: rgb(${color_A}, ${color_B}, ${color_C})"></div>`);
+    }
+
+    </script>
+
+  </body>
+</html>
