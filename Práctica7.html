@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprueba DNI</title>
+</head>
+<body>
+
+    <script>
+
+        var dni = prompt("Introduzca su DNI");
+
+
+        function getLetra(dni) {
+
+            var letra = dni.charAt(8);
+            letra = letra.toUpperCase();
+            return letra;
+
+        }
+
+        function getNumero(dni) {
+
+            var numeroDni = dni.substr(0,8);
+            return numeroDni;
+
+        }
+
+        function checkDni(dni){
+
+            var numero = getNumero(dni);
+            var letra = getLetra(dni);
+            var resto = numero%23;
+            var cadenaLetras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+            var letraResto = cadenaLetras.charAt(resto);
+
+            (letra == letraResto) ? alert("El DNI es correcto") : alert("La letra del DNI no es correcta");
+            
+        }
+
+        if (dni.length() != 9){
+            alert("No es correcto");
+        }
+
+        if (isNaN(getNumero(dni))){
+            alert("No es un número");
+        }
+
+        if (!isNaN(getLetra(dni))){
+            alert("El último dígito debe ser una letra");
+        }
+
+        if (dni == null){
+            alert("No ha introducido nada");
+        }
+
+        checkDni(dni);
+        
+
+    </script>
+    
+</body>
+</html>
