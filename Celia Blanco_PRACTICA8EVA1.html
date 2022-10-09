@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cifrado César</title>
+  </head>
+  <body>
+    <script>
+
+      let clave;
+      let cambiarPor;
+      let nuevoCode;
+      let prueba;
+
+      do {
+        clave = Number(prompt("Introduce un valor numérico para la clave"));
+      } while (isNaN(clave) || clave == "" || clave < 1 || clave > 100);
+
+      if (clave == null) alert("Se ha cancelado el programa");
+
+      let texto = prompt("Introduce texto a cifrar").toUpperCase();
+
+      if (texto == "") alert("No es posible cifrar una cadena vacía");
+
+      for (let i = 0; i < texto.length; i++) {
+        if (texto.charAt(i) != " ") {
+
+          if (texto.charCodeAt(i) == 90) {
+            nuevoCode = 64 + clave;
+          } else {
+            nuevoCode = Number(texto.charCodeAt(i))+clave;
+          }
+
+          console.log("código Unicode: "+texto.charCodeAt(i));
+          
+          cambiarPor =  String.fromCharCode(nuevoCode);
+          texto = texto.replace(texto.charAt(i), cambiarPor);
+          console.log("texto después: " + texto);
+        }
+      }
+
+      document.write("El texto cifrado es: "+texto);
+    </script>
+  </body>
+</html>
