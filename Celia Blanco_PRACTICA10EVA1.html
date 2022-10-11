@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cifrado complejo</title>
+  </head>
+  <body>
+    <script>
+      // declaro variables que necesitaré más adelante
+      let clave;
+      let cambiarPor;
+      let nuevoCode;
+      let prueba;
+      let j = 0;
+      let nuevoTexto = "";
+
+      // bucle para controlar que la clave introducida es un número entre 1 y 100
+      do {
+        clave = Number(prompt("Introduce un valor numérico para la clave"));
+      } while (isNaN(clave) || clave < 0 || clave > 1000000);
+
+
+      // si se hace clic en "cancelar", el valor es 0 y se sale del programa
+      if (clave == 0) {
+        alert("Se ha cancelado el programa");
+        
+      } else {
+        let texto = prompt("Introduce texto a cifrar");
+
+        if (texto == "") {  // controlar que el texto es válido, no una cadena vacía
+          alert("No es posible cifrar una cadena vacía");
+
+        } else if (texto == null) { // si se hace clic en "cancelar", se sale del programa
+          alert("Se ha cancelado el programa");
+
+        } else { // si el texto introducido es válido:
+          
+          clave = String(clave);
+
+          for (let i = 0; i < texto.length; i++) {
+            nuevoCode = Number(texto.charCodeAt(i)) + Number(clave.charAt(j));
+            cambiarPor = String.fromCharCode(nuevoCode); // obtener carácter desplazado
+            nuevoTexto += cambiarPor; // añadir caracteres a la nueva cadena
+
+            j++;
+            if (j == clave.length) {
+              j = 0;
+            }
+            
+          }
+
+          document.write("El texto cifrado es: " + nuevoTexto);
+          alert("El texto cifrado es: " + nuevoTexto);
+        }
+      }
+    </script>
+  </body>
+</html>
