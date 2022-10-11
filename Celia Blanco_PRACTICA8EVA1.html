@@ -6,40 +6,54 @@
   </head>
   <body>
     <script>
-
+      // declaro variables que necesitaré más adelante
       let clave;
       let cambiarPor;
       let nuevoCode;
       let prueba;
 
+      // bucle para controlar que la clave introducida es un número entre 1 y 100
       do {
         clave = Number(prompt("Introduce un valor numérico para la clave"));
-      } while (isNaN(clave) || clave == "" || clave < 1 || clave > 100);
+      } while (isNaN(clave) || clave < 0 || clave > 100);
 
-      if (clave == null) alert("Se ha cancelado el programa");
 
-      let texto = prompt("Introduce texto a cifrar").toUpperCase();
 
-      if (texto == "") alert("No es posible cifrar una cadena vacía");
+      if (clave == 0) { // si se hace clic en "cancelar", el valor es 0 y se sale del programa
+        alert("Se ha cancelado el programa");
 
-      for (let i = 0; i < texto.length; i++) {
-        if (texto.charAt(i) != " ") {
+      } else {
+       
+        let texto = prompt("Introduce texto a cifrar");
 
-          if (texto.charCodeAt(i) == 90) {
-            nuevoCode = 64 + clave;
-          } else {
-            nuevoCode = Number(texto.charCodeAt(i))+clave;
+        if (texto == "") {  // controlar que el texto es válido, no una cadena vacía
+          alert("No es posible cifrar una cadena vacía");
+
+        } else if (texto == null) { // si se hace clic en "cancelar", se sale del programa
+          alert("Se ha cancelado el programa");
+         
+        } else {    // si el texto introducido es válido:
+          texto = texto.toUpperCase();
+
+          for (let i = 0; i < texto.length; i++) {
+            if (texto.charAt(i) != " ") {
+
+              if (texto.charCodeAt(i) == 90) {
+                // en caso de que sea Z, se pasa al código justo antes de la A
+                nuevoCode = 64 + clave;
+
+              } else {
+                nuevoCode = Number(texto.charCodeAt(i)) + clave;
+              }
+              cambiarPor = String.fromCharCode(nuevoCode); // obtener carácter desplazado
+              texto = texto.replace(texto.charAt(i), cambiarPor); // reemplazar carácter
+            }
           }
-
-          console.log("código Unicode: "+texto.charCodeAt(i));
-          
-          cambiarPor =  String.fromCharCode(nuevoCode);
-          texto = texto.replace(texto.charAt(i), cambiarPor);
-          console.log("texto después: " + texto);
+          document.write("El texto cifrado es: " + texto);
         }
+        
       }
-
-      document.write("El texto cifrado es: "+texto);
     </script>
+
   </body>
 </html>
