@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+       let exp1 = /^([A-Za-z]+\s*){2}[A-Za-z]?$/;
+       let exp2 = /^([1-2]?[0-9]|3[01])\/([0-9]|1[0-2])\/(19[0-9]{2}|20([0-1][0-9]|2[0-2]))$/;
+       let exp3 = /^[a-z0-9_%.+-]+@[a-z0-9_%.+-:]+\.[A-Za-z]{2,3}$/;
+       let exp4 = /^(http(s)?\:\/\/)?[a-z0-9_%.+-.-]+\.[a-z.]{2,6}$/;
+
+      let texto = prompt("Ejercicio 22: nombre y apellidos");
+
+      while (!exp1.test(texto) && texto != null) {
+        texto = prompt("No coincide. Introduce otro texto");
+      }
+
+      let texto2 = prompt("Ejercicio 23: fecha con formato dd/mm/aaaa");
+
+      while (!exp2.test(texto2) && texto2 != null) {
+        texto2 = prompt("No coincide. Introduce otro texto");
+      }
+
+      let texto3 = prompt("Ejercicio 24: email");
+
+      while (!exp3.test(texto3) && texto3 != null) {
+        texto3 = prompt("No coincide. Introduce otro texto");
+      }
+
+      let texto4 = prompt("Ejercicio 25: dirección URL");
+
+      while (!exp4.test(texto4) && texto4 != null) {
+        texto4 = prompt("No coincide. Introduce otro texto");
+
+        if (exp4.test(texto4)) {
+          alert("coincide con el patrón");
+        }
+      }
+    </script>
+  </body>
+</html>
