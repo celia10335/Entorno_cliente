@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let exp1 = /^[A-Za-z0-9]+$/;
+      let exp2 = /^[KLXYZ]?[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
+      let exp3 = /([0-4][0-9]|5[0-2])[0-9]{3}/;
+      let exp4 = /(([0-1]?[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.){3}([0-1]?[0-9]{1,2}|2[0-4][0-9]|25[0-5])/;
+
+      let texto = prompt("Ejercicio 13: sólo letras y números");
+
+      while (!exp1.test(texto) && texto != null) {
+        texto = prompt("No coincide. Introduce otro texto");
+      }
+
+      let texto2 = prompt("Ejercicio 14: DNI");
+
+      while (!exp2.test(texto2) && texto2 != null) {
+        texto2 = prompt("No coincide. Introduce otro texto");
+      }
+
+      let texto3 = prompt("Ejercicio 15: código postal");
+
+      while (!exp3.test(texto3) && texto3 != null) {
+        texto3 = prompt("No coincide. Introduce otro texto");
+      }
+
+      let texto4 = prompt("Ejercicio 17: dirección IP");
+
+      while (!exp4.test(texto4) && texto4 != null) {
+        texto4 = prompt("No coincide. Introduce otro texto");
+
+        if (exp4.test(texto4)) {
+          alert("coincide con el patrón");
+        }
+      }
+    </script>
+  </body>
+</html>
