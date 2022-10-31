@@ -11,7 +11,6 @@
         div{
             width: 100vw;
             height: 100vh;
-            position: fixed;
         }
     </style>
 </head>
@@ -26,8 +25,8 @@
         var color_B = parseInt(Math.random()*256);
 
         // Con document.write, aparecerá un nuevo div sustituyendo al anterior, variando sólo el color
-      document.write(`<div style="background-color: rgb(${color_A}, ${color_B}, ${color_C});"></div>`);
-
+      document.write(`<div style="background-color: rgb(200, ${color_B}, ${color_C});"></div>`);
+      
     </script>
 
 
