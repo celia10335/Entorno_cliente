@@ -7,7 +7,7 @@ function Cometa(diametro, temperatura, nombre){
 }
 
 Cometa.prototype.def = function(){
-    document.getElementById("listado").innerHTML = "Un cometa es un cuerpo celeste del sistema solar de pequeñas dimensiones que, cuando se acerca al Sol, deja tras de sí una cola luminosa de miles de kilómetros.";
+    return "Un cometa es un cuerpo celeste del sistema solar de pequeñas dimensiones que, cuando se acerca al Sol, deja tras de sí una cola luminosa de miles de kilómetros.";
 }
 
 Cometa.prototype.getRadio = function(){
@@ -24,7 +24,8 @@ let unCometa = new Cometa(11, 190, "Halley");
 let dosCometa = new Cometa(5, 230, "Neowise");
 let tresCometa = new Cometa(4.2, 85, "Kohouotek");
 
-dosCometa.def();
+document.getElementById("listado").innerHTML = dosCometa.def();
+
 document.getElementById("textoBody").innerHTML += "<br>El radio del cometa "+unCometa.getNombre()+" es "+unCometa.getRadio()+" km.";
 document.getElementById("textoBody").innerHTML += "<br>La temperatura del cometa "+unCometa.getNombre()+" en ºFarenheit es "+unCometa.getTemp()+"<br>";
 
