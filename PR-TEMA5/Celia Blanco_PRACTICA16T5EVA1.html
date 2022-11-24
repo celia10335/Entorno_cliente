@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FUENTES DE GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="./practica16-estilo.css" />
     <title>Factura</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <script src="./practica16Tema5.js"></script>
 
     <h3 id="muestra"></h3>
 
     <table id="tabla" border="1px">
-        <tr>
-            <th>Producto</th>
-            <th>Nombre</th>
-            <th>Destino Postal</th>
-        </tr>
+      <tr>
+        <th>Producto</th>
+        <th>Nombre</th>
+        <th>Destino Postal</th>
+      </tr>
     </table>
 
     <script>
-        
-
-
-for (let i=0; i<valorPedidos.length; i++){
-    document.getElementById("tabla").innerHTML += `<tr><td>${valorPedidos[i].idProducto}</td><td>${valorPedidos[i].nombre}</td><td>${valorPedidos[i].destPostal}</td></tr>`;
-}
-
+      for (let i = 0; i < valorPedidos.length; i++) {
+        document.getElementById(
+          "tabla"
+        ).innerHTML += `<tr><td>${valorPedidos[i].idProducto}</td><td>${valorPedidos[i].nombre}</td><td>${valorPedidos[i].destPostal}</td></tr>`;
+      }
     </script>
-
-    
-</body>
+  </body>
 </html>

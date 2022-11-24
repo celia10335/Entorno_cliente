@@ -1,7 +1,7 @@
 let miJSON = `{"idPedido":"faa-8444","pedidos":
     [
         {"idProducto":"info005","nombre":"Placa_Arduino_one","destPostal":"abarcable"},
-        {"idProducto":"info041","nombre":"Placa_Raspberry_3","destPostal":"No abarcable"},
+        {"idProducto":"info041","nombre":"Placa_Raspberry_3","destPostal":"no abarcable"},
         {"idProducto":"gadget024","nombre":"usb_Multi_5puertos","destPostal":"abarcable"}
     ]}`;
 
