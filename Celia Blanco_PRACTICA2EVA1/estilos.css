@@ -1,9 +1,0 @@
-table{
-    border-collapse: collapse;
-    width: 50%;
-}
-
-td {
-    border: 3px solid pink;
-    text-align: center;
-}
