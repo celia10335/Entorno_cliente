@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+</head>
+<body>
+
+    <script src="./practica16Tema5.js"></script>
+
+    <h3 id="muestra"></h3>
+
+    <table id="tabla" border="1px">
+        <tr>
+            <th>Producto</th>
+            <th>Nombre</th>
+            <th>Destino Postal</th>
+        </tr>
+    </table>
+
+    <script>
+        
+
+
+for (let i=0; i<valorPedidos.length; i++){
+    document.getElementById("tabla").innerHTML += `<tr><td>${valorPedidos[i].idProducto}</td><td>${valorPedidos[i].nombre}</td><td>${valorPedidos[i].destPostal}</td></tr>`;
+}
+
+    </script>
+
+    
+</body>
+</html>
