@@ -148,11 +148,11 @@ function Buscaminas(tablero, filas, columnas, minas, valorMina){
 
 
 // Función que pondrá todo en marcha. Es llamada desde el HTML.
-function instanciaBuscaminas(){
+function instanciaBuscaminas(grafo){
     // rellenamos las variables con la información proporcionada por el usuario, usando para ello funciones (definidas al comienzo del archivo)
     filas = getN_filas();
     columnas = getN_columnas();
-    valorMina = representarMina("mina");
+    valorMina = representarMina(grafo);
     minas = getN_minas(filas, columnas);
     tablero = iniciaTablero(filas, columnas);
     let posX, posY;
