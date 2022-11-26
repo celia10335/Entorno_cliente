@@ -15,21 +15,20 @@
     <script src="./practica16Tema5.js"></script>
 
     <h3 id="muestra"></h3>
-
-    <table id="tabla" border="1px">
-      <tr>
-        <th>Producto</th>
-        <th>Nombre</th>
-        <th>Destino Postal</th>
-      </tr>
-    </table>
+    <table id="tabla" border="1px"></table>
 
     <script>
-      for (let i = 0; i < valorPedidos.length; i++) {
-        document.getElementById(
-          "tabla"
-        ).innerHTML += `<tr><td>${valorPedidos[i].idProducto}</td><td>${valorPedidos[i].nombre}</td><td>${valorPedidos[i].destPostal}</td></tr>`;
-      }
-    </script>
+      // Declaro la variable que recibe la cadena JSON, y que será pasada luego a la función general
+      let miJSON = `{"idPedido":"faa-8444","pedidos":
+  [
+      {"idProducto":"info005","nombre":"Placa_Arduino_one","destPostal":"abarcable"},
+      {"idProducto":"info041","nombre":"Placa_Raspberry_3","destPostal":"no abarcable"},
+      {"idProducto":"gadget024","nombre":"usb_Multi_5puertos","destPostal":"abarcable"}
+  ]}`;
+
+  // Llamo a la función general
+  JSONtoMap(miJSON);
+  </script>
+
   </body>
 </html>

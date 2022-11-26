@@ -1,31 +1,29 @@
-let miJSON = `{"idPedido":"faa-8444","pedidos":
-    [
-        {"idProducto":"info005","nombre":"Placa_Arduino_one","destPostal":"abarcable"},
-        {"idProducto":"info041","nombre":"Placa_Raspberry_3","destPostal":"no abarcable"},
-        {"idProducto":"gadget024","nombre":"usb_Multi_5puertos","destPostal":"abarcable"}
-    ]}`;
+// Creo una función general que irá haciendo todos los pasos para llegar a transformar una cadena JSON (String) en un mapa
+function JSONtoMap(miJSON){
 
-let miObjetoJSON = JSON.parse(miJSON);
+  // Esta función transforma la cadena JSON en un objeto
+    let miObjetoJSON = JSON.parse(miJSON);
+    
+    // Con esta función, le pasamos el objeto y obtenemos un array asociativo
+    const miArrayJSON = Object.entries(miObjetoJSON);
+    
+    // Por último, al array del paso anterior le damos estructura de mapa
+    const miMapJSON = new Map(miArrayJSON);
+    
+    // El método .get es un método propio de los mapas, que va a obtener los valores almacenados en la clave, y los va a organizar en un array.
+    // En este mapa hay dos claves, idPedido y pedidos. Por comodidad para operar con estos datos, los almaceno en una variable para cada una de las claves.
+    let valorIDPedido = miMapJSON.get("idPedido");
+    let valorPedidos = miMapJSON.get("pedidos");
 
-const miArrayJSON = Object.entries(miObjetoJSON);
-
-const miMapJSON = new Map(miArrayJSON);
-
-
-let valorIDPedido = miMapJSON.get("idPedido");
-let valorPedidos = miMapJSON.get("pedidos");
-
-for (let i=0; i<valorPedidos.legth; i++){
-    if (valorPedidos[i].idProducto == "info041")
-    document.getElementById("muestra").innerHTML += `${userPedidos[i].nombre}, ${userPedidos[i].destPostal}`;
-}
-
-
-//console.log(valorPedidos[0].nombre);
-//console.log(valorPedidos[0].destPostal);
-
-// for([clave, valor] of miMapJSON)
-// console.log(`Clave: ${clave}, valor: ${valor}`);
-
-
-
+    // Dibujar el encabezado de la tabla
+    document.getElementById(
+        "tabla"
+      ).innerHTML += "<tr><th>Producto</th><th>Nombre</th><th>Destino Postal</th></tr>";
+    
+    // Recorrer el array con la información de los pedidos, y por cada uno de ellos dibujar el resto de celdas de la tabla.
+    for (let i = 0; i < valorPedidos.length; i++) {
+        document.getElementById(
+          "tabla"
+        ).innerHTML += `<tr><td>${valorPedidos[i].idProducto}</td><td>${valorPedidos[i].nombre}</td><td>${valorPedidos[i].destPostal}</td></tr>`;
+      }
+    }
