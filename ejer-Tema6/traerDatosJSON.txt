@@ -1,0 +1,7 @@
+fetch("https://jasonplaceholder.typicode.vom").then(respuesta => respuesta.text())
+.then(texto => {pre.innerHTML = texto
+//o sea, lo que queremos escribir
+;})
+.cathch(error => ...)
+
+//promesa JSON
