@@ -1,9 +1,13 @@
 function temporizador() {
-    let tiempo = prompt("Introduzca el tiempo en segundos");
+    let minutos = prompt("Introducir minutos");
+    let segundos = prompt("Introduzca segundos");
+
     let texto = document.getElementsByTagName('p').item(0);
 
-    let min = parseInt((tiempo / 60) | 0);
-    let seg = tiempo % 60;
+    let min = parseInt(minutos) + parseInt((segundos / 60) | 0);
+    let seg = segundos % 60;
+
+    console.log(min);
 
     texto.innerHTML = "Minutos: " + min + "<br> Segundos: " + seg;
 
