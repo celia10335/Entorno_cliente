@@ -4,22 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      span {
+        background-color: rgb(248, 115, 67);
+        border: dotted 5px rgb(85, 47, 255);
+        color: white;
+        font-weight: 800;
+        font-size: 1.2em;
+      }
+    </style>
     <title>Parental Advisory</title>
   </head>
   <body>
     <script src="./script.js"></script>
-
     <main>
       <h1>titulo</h1>
       <p>lore</p>
       <p>ipsum</p>
+      <p>sexo</p>
     </main>
     <footer>
-      <p>pie de página</p>
+      <p>pie de página sEXo</p>
     </footer>
-
     <script>
-      inspeccionar();
+      // Declaro la expresión regular, para capturar la palabra "sexo" en todas las formas en que se puede escribir.
+      // La "g" es necesaria, ya que replaceAll sólo funciona con expresiones regulares globales.
+      let regex = /[s|S][e|E][x|X][o|O]/g;
+
+      // Capturo el elemento body y lo almaceno en la variable body_e.
+      let body_e = document.getElementsByTagName('body')[0];
+
+      // Paso estos dos elementos (expresión regular y body) como parámetros de la función:
+      bloquearContenido(body_e, regex);
     </script>
   </body>
 </html>
