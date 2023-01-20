@@ -6,44 +6,26 @@
   </head>
   <body>
     <script src="./script.js"></script>
-    <section id="s1">
+
+    <!-- La información se mostrará por pantalla con una etiqueta "details" desplegable, además de por consola -->
+    <details>
+      <summary>INFORMACIÓN SOBRE EL DOM DE ESTE DOCUMENTO</summary>
+      <p id="ini"></p>
+    </details>
+
+    <section id="s1" class="gggg" draggable="false">
       <h1>Título</h1>
       <p>Ejemplo de documento <strong>DOM</strong> Visión en árbol</p>
     </section>
     <section id="s2">
       <p>Aquí sólo hay texto</p>
     </section>
+    <h2 class="h2"></h2>
+
     <script>
-      let info = '';
-      let padre = document.getElementsByTagName('html');
-      info +=
-        '<br>&#10026 Nodo raíz: ' +
-        padre[0].nodeName +
-        '<br>Tipo: ' +
-        padre[0].nodeType;
-
-      if (padre[0].nodeValue != null) {
-        info += '<br>Contenido: ' + padre[0].nodeValue;
-      }
-
-      info += '<br>Atributos: ';
-
-      for (let attr of padre[0].attributes) {
-        info += `${attr.name} -> ${attr.value}\n`;
-      }
-      info += '<hr>';
-
-      info += desglosarDom('html');
-      let capa = document.getElementById('s2');
-      let resumen = document.createElement('p');
-      resumen.innerHTML = '<strong>' + info + '</strong>';
-      capa.appendChild(resumen);
-
-      document.getElementsByTagName('html')[0].parentNode == null
-        ? console.log(1)
-        : console.log(0);
-
-      console.log(padre[0].nodeValue);
+      //desglosarDom(document);
+      let info = document.getElementById('ini');
+      info.innerHTML = desglosarDom(document, '') + '<hr>';
     </script>
   </body>
 </html>

@@ -1,41 +1,43 @@
-function desglosarDom(elemento) {
-    let info = '';
-    let listaPadres = document.getElementsByTagName(elemento);
+function desglosarDom(elemento, info) {
 
-    let i = 0;
+    // Comenzamos por el elemento de nivel más alto, que será el que se le pase a la función. En este caso, el elemento será "document". Se recoge su información:
+    console.log("Nombre de nodo: " + elemento.nodeName + "\nTipo: " + elemento.nodeType);
+    info += "Nombre de nodo: " + elemento.nodeName + " - Tipo: " + elemento.nodeType
 
-    do {
+    // Si, además, ese elemento es tipo texto (nodeType = 3) y no es nulo, le pido que muestre el contenido del nodo:
+    if ((elemento.nodeValue != null) && (elemento.nodeType == 3)) {
+        console.log('\nContenido: ' + elemento.nodeValue);
+        info += ' - Contenido: ' + elemento.nodeValue;
+    }
 
-        for (let hijo of listaPadres[i].childNodes) {
-
-            info += "<br>&#10043 Nombre de nodo: " + hijo.nodeName + "<br>Tipo: " + hijo.nodeType;
-            if (hijo.nodeValue != null) {
-                info += '<br>Contenido: ' + hijo.nodeValue;
-            }
-
-            if (hijo.nodeType == 1 && hijo.hasAttributes) {
-                info += "<br>Atributos: ";
-
-                for (let attr of hijo.attributes) {
-                    info += `${attr.name} -> ${attr.value}\n`;
-                }
-
-                info += "<hr>";
-            }
-
-            else {
-                info += "<hr>";
-            }
-
-            if (hijo.nodeType == 1 && hijo.hasChildNodes) {
-                info += desglosarDom(hijo.nodeName);
-            }
+    // Si, además, este elemento tiene atributos (método "hasAttributes"), le pido que los muestre en formato "Atributos -> nombre = valor":
+    if (elemento.hasAttributes) {
+        // El método "attributes" devuelve un listado de todos los atributos de ese elemento. Por eso, para acceder a ellos necesito un bucle.
+        let arrayAtr = elemento.attributes;
+        for (let a of arrayAtr) {
+            console.log(`Atributos -> ${a.name} = ${a.value}\n`);
+            info += `<br>Atributos -> ${a.name} = ${a.value}`;
         }
-        i++;
+    }
 
-    } while (i < listaPadres.length);
+    // Si el elemento tiene hijos (método "hasChildrenNodes"), se desglosan a continuación con dos bucles: el primero para mostrar un listado de hijos, y el segundo para entrar en el detalle de cada uno de ellos:
+    if (elemento.hasChildNodes) {
 
+        // El método "childrenNodes" devuelve un listado de todos los hijos de ese elemento del tipo que sean, a diferencia de "children", que devuelve sólo los de tipo etiqueta.
+        let grupoHijos = elemento.childNodes;
 
+        console.log("**** Hijos de " + elemento.nodeName + ":\n");
+        info += "**** Hijos de " + elemento.nodeName + ":<br>";
+
+        for (let hijo of grupoHijos) {
+            console.log("   - " + hijo.nodeName + ":\n");
+            info += "   - " + hijo.nodeName + ":<br>";
+        }
+
+        for (let hijo of grupoHijos) {
+            info += desglosarDom(hijo, "");
+        }
+    }
 
     return info;
 }
