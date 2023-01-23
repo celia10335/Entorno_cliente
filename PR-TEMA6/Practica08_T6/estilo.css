@@ -19,3 +19,14 @@ td {
   border-collapse: collapse;
   padding: 10px 30px;
 }
+
+.mayusculas {
+  text-transform: uppercase;
+}
+
+.chachi {
+  font-family: fantasy;
+  color: rgb(65, 15, 112);
+  font-weight: 900;
+  background-color: rgb(207, 230, 201);
+}
