@@ -1,0 +1,21 @@
+input[type='text'] {
+  margin: 15px 0 0 20vw;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  margin-top: 6vh;
+}
+thead tr {
+  background-color: salmon;
+}
+tr {
+  height: 40px;
+}
+
+td {
+  border: solid salmon 2px;
+  border-collapse: collapse;
+  padding: 10px 30px;
+}
