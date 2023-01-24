@@ -1,0 +1,8 @@
+#capa {
+  height: 300px;
+  width: 300px;
+  border: solid black 2px;
+  position: relative;
+  top: 100px;
+  left: 100px;
+}
