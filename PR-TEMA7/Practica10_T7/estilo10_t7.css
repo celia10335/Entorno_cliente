@@ -1,0 +1,16 @@
+body {
+  background-color: black;
+  color: blanchedalmond;
+}
+
+h1,
+p {
+  text-align: center;
+  margin-top: 30vh;
+  font-size: 3em;
+}
+
+p {
+  font-size: 1em;
+  margin-top: 50px;
+}
