@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Uno</p>
+    <p>Dos</p>
+    <p>Tres</p>
+    <p>Cuatro</p>
+    <p>Cinco</p>
+    <script>
+      let parrafos = document.querySelectorAll('p');
+      for (let parrafo of parrafos) {
+        parrafo.addEventListener('click', () => {
+          alert(parrafo.textContent);
+        });
+      }
+
+      let quinto = document.querySelector('p:nth-child(5)');
+      quinto.addEventListener('click', () => {
+        alert(quinto.textContent);
+      });
+    </script>
+  </body>
+</html>
