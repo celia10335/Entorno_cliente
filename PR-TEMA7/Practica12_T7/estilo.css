@@ -1,0 +1,29 @@
+#cajaTexto {
+  height: 50vh;
+  width: 50vw;
+  overflow: scroll;
+  border: solid black 2px;
+  margin: auto;
+  margin-top: 12vh;
+}
+
+/* Estilo del botón que va a aparecer al llegar al final del texto */
+button {
+  background-color: rgb(91, 135, 146);
+  font-size: 1.3em;
+  height: 60px;
+  width: 50vw;
+  margin-left: 24.5vw;
+  margin-top: 20px;
+}
+
+/* Este elemento aparecerá al hacer clic en el botón */
+button ~ p {
+  margin-left: 24.5vw;
+  font-style: italic;
+}
+
+/* Clase con la que controlamos que los elementos no se vean, que desaparezcan */
+.oculto {
+  display: none;
+}
