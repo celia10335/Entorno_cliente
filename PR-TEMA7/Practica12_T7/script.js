@@ -12,11 +12,12 @@ function scrollHastaAbajo() {
     let ventanita = document.getElementById('cajaTexto');
 
     // El "listener" scroll hace aparecer los eventos según se avanza en el documento con el scroll. Al llegar a una posición "scrollTop" superior a 700, respecto a la primera línea del div, aparecerá el botón (se lo cuelgo como hijo al "body" con "appendChild").
+    // Previamente, he medido el scroll con "console.log(ventanita.scrollTop + 'px')" y he obtenido 700px.
     ventanita.addEventListener("scroll", () => {
         if (ventanita.scrollTop > 700) {
             capa.appendChild(postizo);
         }
-        console.log(ventanita.scrollTop + 'px');
+
     })
 
     // Al hacer clic sobre el botón, los distintos elementos pasan su clase a "oculto", que tiene la propiedad "disply: none", haciendo que dejen de mostrarse en pantalla.
