@@ -26,5 +26,5 @@ p {
 }
 
 .opaco {
-  background-color: indigo;
+  opacity: 0;
 }
