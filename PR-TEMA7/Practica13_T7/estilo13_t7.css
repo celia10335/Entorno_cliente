@@ -1,0 +1,30 @@
+.origen,
+.destino {
+  position: absolute;
+  margin: 80px;
+  padding: 20px;
+  border: solid black 1px;
+  width: 200px;
+  height: 100px;
+}
+
+.origen {
+  background-color: rgb(255, 255, 103);
+}
+
+.destino {
+  left: 50vw;
+}
+
+p {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.translucido {
+  opacity: 0.5;
+}
+
+.opaco {
+  background-color: indigo;
+}
