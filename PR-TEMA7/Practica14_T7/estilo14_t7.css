@@ -17,7 +17,7 @@
 }
 
 .circle {
-  position: relative;
+  position: absolute;
   border: solid black 1px;
   border-radius: 50%;
 }
