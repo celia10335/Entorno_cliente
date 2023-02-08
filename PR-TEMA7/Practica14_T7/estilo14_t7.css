@@ -1,0 +1,23 @@
+#cuadrado {
+  height: 70px;
+  width: 70px;
+  background-color: yellow;
+  border: black 1px solid;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*Le doy formato a los div interiores, los cuales se posicionan con la propiedad flex */
+#cuadrado div {
+  border: solid red 1px;
+  width: 47%;
+}
+
+.circle {
+  position: relative;
+  border: solid black 1px;
+  border-radius: 50%;
+}
