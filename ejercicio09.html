@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      table,
+      td {
+        border: solid black 1px;
+      }
+    </style>
+    <title>Datos online</title>
+  </head>
+  <body>
+    <h1>Presentando datos en formato JSON</h1>
+    <table id="miID"></table>
+    <script>
+      var tabla = document.getElementById('miID');
+      fetch('http://jsonplaceholder.typicode.com/posts?userId=1')
+        .then((respuesta) => {
+          if (respuesta.ok) {
+            //Nos aseguramos que no haya errores
+            return respuesta.json(); //Devuelve un objeto en formato JSON
+          } else {
+            throw new Error('Los datos no llegaron bien');
+          }
+        })
+        .then((miJSON) => {
+          //Recoge nuestra respuesta JSON
+          for (let j of miJSON) {
+            console.log(j);
+          }
+
+          tabla.innerHTML =
+            '<tr><th>userId</th><th>ID</th><th>title</th><th>body</th></tr>';
+          for (let j of miJSON) {
+            tabla.innerHTML += `<tr>
+      <td>${j.userId}</td>
+      <td>${j.id}</td>
+      <td>${j.title}</td>
+      <td>${j.body}</td></tr>`;
+          }
+        }) //Lo podemos hacer así por miJSON es un objeto con sus propiedades
+        .catch((error) => {
+          tabla.textContent = 'Error: ' + error;
+        });
+    </script>
+  </body>
+</html>
