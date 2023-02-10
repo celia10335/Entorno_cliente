@@ -16,7 +16,7 @@
     <table id="miID"></table>
     <script>
       var tabla = document.getElementById('miID');
-      fetch('http://jsonplaceholder.typicode.com/posts?userId=1')
+      fetch('./misDatos.json')
         .then((respuesta) => {
           if (respuesta.ok) {
             //Nos aseguramos que no haya errores
