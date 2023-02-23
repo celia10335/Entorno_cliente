@@ -43,9 +43,6 @@ function contarVisitas() {
     botonCerrar.innerHTML = '';
 
     cuadro.innerHTML = '<div><h1>Esta página dice</h1><p>Esta página usa una cookie para almacenar el número de visitas que hace cada usuario. Si está conforme con ello, pulse "Sí".</p><p>De otro modo, la página no realizará su labor y eliminará las cookies existentes.</p><button id="aceptar">Aceptar</button><button id="cancelar">Cancelar</button></div>';
-
-    botonAceptar = document.getElementById('aceptar');
-    botonCancelar = document.getElementById('cancelar');
   });
 
 
