@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      div {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      form {
+        width: 330px;
+        background-color: rgb(162, 209, 255);
+        margin: auto;
+        margin-top: 10vh;
+        padding: 10px 30px;
+        border: solid 2px rgb(255, 136, 0);
+        font-size: 1.15em;
+      }
+
+      input {
+        font-size: 0.8em;
+        width: 210px;
+        padding-left: 10px;
+        height: 25px;
+      }
+    </style>
+    <title>Datos JSON</title>
+  </head>
+  <body>
+    <form action="get"></form>
+    <h3></h3>
+    <script>
+      // Capturo el formulario con querySelector, ya que sólo hay uno.
+      let formu = document.querySelector('form');
+
+      //Hago lo mismo con el elemento que mostrará el mensaje de error en caso de que lo hubiera.
+      let mensajeError = document.querySelector('h3');
+
+      // Con el método fetch extraigo la información del archivo que está en este mismo directorio.
+      fetch('./datos.json')
+        // Utilizo una promesa para operar con los datos. Si la conexión va bien, transforma el JSON en cadena de texto, después en objeto y después en array.
+        .then((respuesta) => respuesta.text())
+        .then((miJson) => {
+          let json_objeto = JSON.parse(miJson);
+          let json_array = Object.entries(json_objeto);
+
+          // Obtengo así un array de arrays, donde el elemento 0 es la clave y el 1 es el valor.
+          // Recorro el array y lo imprimo por pantalla. En los <label> irán las claves y en los <input> el valor.
+          for (let i of json_array) {
+            console.log(i[1]);
+            let input = document.createElement('p');
+            input.innerHTML =
+              '<div><label for="' +
+              i[0] +
+              '">' +
+              i[0] +
+              '</label><input type="text" value="' +
+              i[1] +
+              '" /></div>';
+            formu.appendChild(input);
+          }
+        })
+        .catch((error) => {
+          mensajeError.innerHTML = error;
+        });
+
+      //Para probar el error, escribo la ruta del archivo con un nombre incorrecto.
+    </script>
+  </body>
+</html>
