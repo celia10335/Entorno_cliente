@@ -1,0 +1,36 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+div {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+div.botones {
+  width: 130px;
+  margin: auto;
+}
+
+form {
+  width: 480px;
+  background-color: rgb(162, 209, 255);
+  margin: auto;
+  margin-top: 10vh;
+  padding: 10px 30px;
+  border: solid 2px rgb(255, 136, 0);
+  font-size: 1.15em;
+}
+
+input {
+  font-size: 1em;
+  width: 360px;
+  padding-left: 10px;
+  height: 25px;
+}
+
+textarea {
+  font-size: 1em;
+  height: 160px;
+  width: 370px;
+}
